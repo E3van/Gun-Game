@@ -8,6 +8,7 @@ import java.awt.image.*;
 import java.util.*;
 import javax.swing.*;
 
+
 // creates the canvas that we will actually draw on
 public class Main extends Canvas {
   // basic variables used to set size, titles, and how fast to update the screen
