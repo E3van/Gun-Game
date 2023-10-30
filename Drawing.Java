@@ -8,9 +8,8 @@ import java.awt.image.*;
 import java.util.*;
 import javax.swing.*;
 
-
 // creates the canvas that we will actually draw on
-public class Main extends Canvas {
+public class Drawing extends Canvas {
   // basic variables used to set size, titles, and how fast to update the screen
   final int WIDTH;
   final int HEIGHT;
@@ -72,6 +71,7 @@ public class Main extends Canvas {
     // clear the screen with a white box
     g.setColor(Color.WHITE);
     g.fillRect(0, 0, WIDTH, HEIGHT);
+    g.setColor(Color.BLACK);
     // draw the stuff in the Main file
     game.paintComponent(g);
   }
