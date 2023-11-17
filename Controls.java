@@ -38,5 +38,33 @@ public class Controls {
         this.updateScreen();
     }
 
-    
-}
+    // Used to implements any of the Keyboard Actions
+  private class Keyboard extends KeyAdapter {
+
+    // if a key has been pressed down
+    @Override
+    public void keyPressed(KeyEvent e) {
+      // determine which key was pressed
+      int key = e.getKeyCode();
+
+      
+    }
+
+    // if a key has been released
+    @Override
+    public void keyReleased(KeyEvent e) {
+      // determine which key was pressed
+      int key = e.getKeyCode();
+
+      
+    }
+  }
+
+
+  // the main method that launches the game when you hit run
+  public static void main(String[] args) {
+    Main game = new Main();
+  }
+
+ }
+
