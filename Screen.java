@@ -45,5 +45,5 @@ public class Screen extends JFrame implements ActionListener{
     // determine the action command
     String command = e.getActionCommand();
    
-}
+  }
 }

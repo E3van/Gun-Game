@@ -1,9 +1,15 @@
 import java.awt.image.BufferedImage;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Controls {
     
     private Screen screen;
     private Map map;
+    private boolean right = false;
+    private boolean left = false;
+    private boolean up = false;
+    private boolean down = false;
 
     public Controls(Screen screen, String mapFilename){
         this.screen = screen;
@@ -44,8 +50,25 @@ public class Controls {
     // if a key has been pressed down
     @Override
     public void keyPressed(KeyEvent e) {
+    
+      
       // determine which key was pressed
       int key = e.getKeyCode();
+      if(key == KeyEvent.VK_RIGHT){
+        right = true;
+      }
+
+      if(key == KeyEvent.VK_LEFT){
+        left = true;
+      }
+
+      if(key == KeyEvent.VK_UP){
+        up = true;
+      }
+
+      if(key == KeyEvent.VK_DOWN){
+        down = true;
+      }
 
       
     }
@@ -56,14 +79,23 @@ public class Controls {
       // determine which key was pressed
       int key = e.getKeyCode();
 
+      if(key == KeyEvent.VK_RIGHT){
+        right = false;
+      }
+
+      if(key == KeyEvent.VK_LEFT){
+        left = false;
+      }
+
+      if(key == KeyEvent.VK_UP){
+        up = false;
+      }
+
+      if(key == KeyEvent.VK_DOWN){
+        down = false;
+      }
       
     }
-  }
-
-
-  // the main method that launches the game when you hit run
-  public static void main(String[] args) {
-    Main game = new Main();
   }
 
  }
