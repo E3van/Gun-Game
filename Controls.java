@@ -6,6 +6,7 @@ public class Controls {
     
     private Screen screen;
     private Map map;
+    private Player player;
     private boolean right = false;
     private boolean left = false;
     private boolean up = false;
@@ -44,59 +45,4 @@ public class Controls {
         this.updateScreen();
     }
 
-    // Used to implements any of the Keyboard Actions
-  public class Keyboard extends KeyAdapter {
-
-    // if a key has been pressed down
-    @Override
-    public void keyPressed(KeyEvent e) {
-    
-      
-      // determine which key was pressed
-      int key = e.getKeyCode();
-      if(key == KeyEvent.VK_RIGHT){
-        right = true;
-      }
-
-      if(key == KeyEvent.VK_LEFT){
-        left = true;
-      }
-
-      if(key == KeyEvent.VK_UP){
-        up = true;
-      }
-
-      if(key == KeyEvent.VK_DOWN){
-        down = true;
-      }
-
-      
-    }
-
-    // if a key has been released
-    @Override
-    public void keyReleased(KeyEvent e) {
-      // determine which key was pressed
-      int key = e.getKeyCode();
-
-      if(key == KeyEvent.VK_RIGHT){
-        right = false;
-      }
-
-      if(key == KeyEvent.VK_LEFT){
-        left = false;
-      }
-
-      if(key == KeyEvent.VK_UP){
-        up = false;
-      }
-
-      if(key == KeyEvent.VK_DOWN){
-        down = false;
-      }
-      
-    }
   }
-
- }
-
