@@ -18,8 +18,8 @@ public class Controls {
         
     }
     private void updateScreen(){
-         //update the display
- //        //this.screen.setImage(this.map.getImage());
+ //        update the display
+ //        this.screen.setImage(this.map.getImage());
  //        this.screen.setDescription(this.map.getDescription());
         
     }
@@ -45,7 +45,7 @@ public class Controls {
     }
 
     // Used to implements any of the Keyboard Actions
-  private class Keyboard extends KeyAdapter {
+  public class Keyboard extends KeyAdapter {
 
     // if a key has been pressed down
     @Override
