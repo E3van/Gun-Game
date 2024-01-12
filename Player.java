@@ -1,4 +1,6 @@
 import java.awt.Rectangle;
+import java.awt.Graphics2D;
+import java.awt.Graphics;
 
 
 public class Player {
@@ -46,4 +48,7 @@ public class Player {
         this.movement = Movement.DROP;
     }
 
+    public void character(Graphics2D g){
+        //make the image the rectangle
+    }
 }
