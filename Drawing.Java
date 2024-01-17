@@ -14,7 +14,7 @@ import java.awt.event.MouseMotionListener;
 
 /**
  * A custom JComponent to paint a picture to the screen
- * @author Mr. Lamont
+ * @author Zohaib, Abhayjit, Evan
  */
 public class Drawing extends JComponent {
 
