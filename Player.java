@@ -26,7 +26,7 @@ public class Player {
         }else if(this.movement == Movement.RIGHT){
             this.character.x +=5;
         }else if(this.movement == Movement.JUMP){
-            this.character.y -= 5;
+            this.character.y -= 10;
         }else if(this.movement == Movement.DROP){
             this.character.y += 5;
         }

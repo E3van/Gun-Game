@@ -25,24 +25,34 @@ public class Controls {
         
     }
 
-    public void jumpUp(){
- //       this.map.moveNorth();
-        this.updateScreen();
+    public int jumpUp(int y){
+        //add if statement for collision check
+        y -= 10;
+        return y;
     }
 
-    public void moveLeft(){
- //       this.map.moveEast();
-        this.updateScreen();
+    public int moveLeft(int x){
+        //add if statement for collision check
+        x -= 5;
+        return x;
     }
     
-    public void moveDown(){
- //       this.map.moveSouth();
-        this.updateScreen();
+    public int moveDown(int y){
+        //add if statement for collision check
+        y += 10;
+        return y;
     }
 
-    public void moveRight(){
- //       this.map.moveWest();
-        this.updateScreen();
+    public int moveRight(int x){
+        //add if statement for collision check
+        x += 5;
+        return x;
+        
+    }
+    //check if player can go left right down and up 
+    public boolean collision(){
+        //add stuff here and delete return false
+        return false;
     }
 
   }
