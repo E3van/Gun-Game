@@ -11,7 +11,7 @@ public class Drawing extends JComponent {
 
     // holds the image
     private BufferedImage image;
-
+    
     /**
     * Sets the image to be displayed inside of the panel
     * @param img The BufferedImage to show on the pannel

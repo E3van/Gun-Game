@@ -50,5 +50,6 @@ public class Player {
 
     public void character(Graphics2D g){
         //make the image the rectangle
+        g.fillRect(0, 0, 0, 0);
     }
 }
