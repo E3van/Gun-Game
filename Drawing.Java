@@ -8,6 +8,10 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+/**
+ * A custom JComponent to paint a picture to the screen
+ * @author Zohaib, Abhayjit, Evan
+ */
 public class Drawing extends JPanel{
   // Timer for the game loop
   Timer gameTimer;
