@@ -1,7 +1,3 @@
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.awt.Color;
-import javax.swing.JComponent;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,22 +8,12 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-/**
- * A custom JComponent to paint a picture to the screen
- * @author Zohaib, Abhayjit, Evan
- */
-public class Drawing extends JComponent {
-
-    // holds the image
-    private BufferedImage image;
-    
-     // Timer for the game loop
+public class Drawing extends JPanel{
+  // Timer for the game loop
   Timer gameTimer;
   
   Keyboard keys = new Keyboard();
   Mouse mouse = new Mouse();
-
-  // Other variables for your project can go on the next lines
 
   
   // How fast do you want your game to run? Frames Per Second  
@@ -36,35 +22,71 @@ public class Drawing extends JComponent {
   final int WIDTH = 800;
   final int HEIGHT = 600;
 
-    /**
-    * Sets the image to be displayed inside of the panel
-    * @param img The BufferedImage to show on the pannel
-    */
-    public void setImage(BufferedImage img) {
-        this.image = img;
-        // asks the panel to redraw itself
-        repaint();
+  // Other variables for your project can go on the next lines
+  private Color lightBlue = new Color(128, 168, 242);
+  private Player player;
+  private Player player2;
+  
+
+  // Initialize things BEFORE the game starts
+  public void setup(){
+    // are there any variables that need initialized BEFORE the game starts?
+    // Do that here!
+    this.player = new Player(30, 200, 25, 50);
+    this.player2 = new Player(500, 200, 25, 50);
+    
+    
+  }
+
+    // Paint the game components here
+    @Override
+  protected void paintComponent(Graphics g) {
+    super.paintComponent(g);
+    // clear the screen
+    g.clearRect(0, 0, WIDTH, HEIGHT);
+
+    g.setColor(lightBlue);
+    // You can add more drawing here
+    if(keys.isPressed(KeyEvent.VK_SPACE)){
+      g.fillRect(mouse.getX(),mouse.getY(), 50, 100);
     }
 
-    /**
-    * The paint command that is called automatically when showing the panel (not called directly)
-    * @param g The graphics object used to paint
-    */    
-     // Paint the game components here
-     @Override
-    public void paintComponent(Graphics g) {
+    this.player.draw((Graphics2D)g);
+    this.player2.draw((Graphics2D)g);
+    
+    
+    
+  }
 
-        super.paintComponent(g);
-        // clear the screen
-        g.clearRect(0, 0, WIDTH, HEIGHT);
+  // Update game logic here
+  public void loop() {
+    // This method is called by the game loop
+    // This is where your game logic goes
 
-    	if(this.image != null){
-            g.drawImage(this.image, 0, 0, this.getWidth(), this.getHeight(), null);
-        }else{
-            g.setColor(Color.BLACK);
-            g.fillRect(0, 0, this.getWidth(), this.getHeight());
-        }
+    if(keys.isPressed(KeyEvent.VK_A)){
+      this.player.moveLeft();
+    }else if(keys.isPressed(KeyEvent.VK_D)){
+      this.player.moveRight();
+    }else{
+      this.player.stop();
     }
+
+    this.player.update();
+
+
+    if(keys.isPressed(KeyEvent.VK_LEFT)){
+      this.player2.moveLeft();
+    }else if(keys.isPressed(KeyEvent.VK_RIGHT)){
+      this.player2.moveRight();
+    }else{
+      this.player2.stop();
+    }
+
+    this.player2.update();
+    
+    
+  }
+
 
   // YOU SHOULDN'T NEED TO MODIFY ANYTHING AFTER THIS POINT
   // Feel free to have a look to see what is happening but don't touch the code down here!
@@ -95,9 +117,6 @@ public class Drawing extends JComponent {
     });
     gameTimer.start();
   }
-
-  
-
 
   public static void main(String[] args) {
       SwingUtilities.invokeLater(new Runnable() {

@@ -1,6 +1,7 @@
-import java.awt.Rectangle;
-import java.awt.Graphics2D;
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 
 public class Player {
@@ -13,42 +14,58 @@ public class Player {
     }
 //create a player class that allows 2 or more players to move up, down, left and right
     private Rectangle character;
-    private Movement movement; 
+    private Movement horizontal; 
+    private Movement vertical;
 
     public Player(int playerx, int playery, int width, int height){
         this.character = new Rectangle(playerx, playery, width, height);
-        this.movement = Movement.STOP; 
+        this.horizontal = Movement.STOP; 
+        this.vertical = Movement.STOP; 
     }
 
+   // private Movement horizontal;
+   // private Rectangle hitbox;
+
     public void update(){
-        if(this.movement == Movement.LEFT){
+        if(this.horizontal == Movement.LEFT){
             this.character.x -= 5;
-        }else if(this.movement == Movement.RIGHT){
+        }else if(this.horizontal == Movement.RIGHT){
             this.character.x +=5;
-        }else if(this.movement == Movement.JUMP){
+        }else if(this.vertical == Movement.JUMP){
             this.character.y -= 5;
-        }else if(this.movement == Movement.DROP){
+        }else if(this.vertical == Movement.DROP){
             this.character.y += 5;
         }
     }
 
     public void moveleft(){
-        this.movement = Movement.LEFT;
+        this.horizontal = Movement.LEFT;
     }
 
     public void moveRight(){
-        this.movement = Movement.RIGHT;
+        this.horizontal = Movement.RIGHT;
     }
 
     public void jump(){
-        this.movement = Movement.JUMP;
+        this.vertical = Movement.JUMP;
     }
 
     public void movedown(){
-        this.movement = Movement.DROP;
+        this.vertical = Movement.DROP;
     }
 
-    public void character(Graphics2D g){
-        //make the image the rectangle
+    public void stop(){
+        this.horizontal = Movement.STOP;
+        this.vertical = Movement.STOP;
     }
+
+    public void draw(Graphics2D g){
+        g.setColor(Color.RED);
+        g.fill(this.character);
+    } 
+
+
+    //public void character(Graphics2D g){
+        //make the image the rectangle
+   // }
 }
