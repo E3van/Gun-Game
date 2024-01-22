@@ -31,6 +31,8 @@ public class Drawing extends JComponent {
         repaint();
     }
 
+    
+
     /**
     * The paint command that is called automatically when showing the panel (not called directly)
     * @param g The graphics object used to paint
